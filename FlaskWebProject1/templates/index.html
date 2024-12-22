@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>Upload Image for Prediction</h1>
+
+<form method="POST" enctype="multipart/form-data">
+    <label for="file">Choose an image:</label>
+    <input type="file" name="file" id="file" required>
+    <button type="submit">Upload</button>
+</form>
+
+    {% if result %}
+<h2>Prediction Result</h2>
+<img src="{{ result.image_url }}" alt="Uploaded Image" width="300">
+<p>Predicted Class: {{ result.predicted_class }}</p>
+<p>Confidence: {{ result.confidence }}</p>
+    {% endif %}
+<!--<div class="content-body default-height">
+    <div class="row justify-content-center h-100 align-items-center">
+        <div class="col-md-6">
+            <div class="">
+                <div class="row no-gutters">
+                    <div class="col-xl-12">
+                        <div class="auth-form">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h4 class="text-center mb-4">Scan</h4>-->
+<!-- Live Camera Module -->
+<!--<div class="camera-container">
+    <video id="cameraFeed" autoplay playsinline style="width: 100%; height: auto; border: 1px solid #ccc;"></video>
+    <div id="cameraError" style="color: red; display: none;">Unable to access the camera. Please check your permissions or device settings.</div>
+</div>-->
+<!-- Snap Button -->
+<!--<div class="text-center mt-3">
+        <button id="snapButton" class="btn btn-primary">Snap</button>
+    </div>
+
+</div>
+<div class="col-6">
+    <div class="text-center">
+        <p>Results here</p>
+    </div>-->
+<!-- Captured Image Display -->
+<!--<div class="mt-3">
+                                        <canvas id="capturedImage" style="width: 100%; height: auto; border: 1px solid #ccc;"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="row">
+                                    <div class="col-sm-4 m-3">
+                                        <div class="text-center">
+                                            <button type="button" class="btn btn-primary light btn-block" onclick="location.href='@Url.Action(" Scan","Main")'">Try Again</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 m-3">
+                                        <div class="text-center">
+                                            <button type="button" class="btn btn-primary light btn-block" onclick="location.href='@Url.Action(" Scan","Main")'">Analyze</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const cameraFeed = document.getElementById('cameraFeed');
+    const cameraError = document.getElementById('cameraError');
+    const snapButton = document.getElementById('snapButton');
+    const capturedImageCanvas = document.getElementById('capturedImage');
+    const canvasContext = capturedImageCanvas.getContext('2d');
+
+    // Access the user's camera
+    async function startCamera() {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            cameraFeed.srcObject = stream;
+        } catch (error) {
+            console.error('Error accessing camera:', error);
+            cameraError.style.display = 'block';
+        }
+    }
+
+    // Capture an image from the video feed
+    snapButton.addEventListener('click', () => {
+        // Set canvas size to match the video feed dimensions
+        capturedImageCanvas.width = cameraFeed.videoWidth;
+        capturedImageCanvas.height = cameraFeed.videoHeight;
+
+        // Draw the current frame from the video feed onto the canvas
+        canvasContext.drawImage(cameraFeed, 0, 0, capturedImageCanvas.width, capturedImageCanvas.height);
+    });
+
+    // Start the camera when the page loads
+    window.onload = startCamera;
+</script>-->
+{% endblock %}
